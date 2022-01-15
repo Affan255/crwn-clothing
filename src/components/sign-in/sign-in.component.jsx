@@ -17,7 +17,8 @@ class SignIn extends Component {
     event.preventDefault()
     const { email, password } = this.state
     try {
-      await auth.signInWithEmailAndPassword(email, password)
+      const response = await auth.signInWithEmailAndPassword(email, password)
+      console.log(response)
       this.setState({
         email: '',
         password: ''
@@ -59,7 +60,7 @@ class SignIn extends Component {
             <CustomButton
               type='submit'
               value='Submit Form'
-              onSubmit={this.handleSubmit}
+              onClick={this.handleSubmit}
             >
               Sign in
             </CustomButton>
